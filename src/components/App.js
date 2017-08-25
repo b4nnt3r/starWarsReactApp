@@ -50,6 +50,18 @@ handleSubmit(event) {
   // You will want to use this array when you set the state of 'vehicles'. You will need this data in your render.
   // Enter your code below:
 
+componentDidMount(){
+  console.log('did mount');
+  fetch('https://swapi.co/api/vehicles/')
+  .then(response => response.json())
+  .then(json => {
+    console.log(json);
+    this.setState({
+      vehicles: json.results
+    })
+  })
+}
+
   // RENDER
   // Before you can map over the data you've fetched, you will first need to store that 'state' in a variable.
   // Map over the data.
