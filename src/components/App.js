@@ -9,8 +9,8 @@ class App extends Component {
   // Set props and state below.
   // You should set state for vehicles (empty array), value (empty string), pilot (empty) string.
   // Enter your code below:
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       vehicles: [],
       value: '',
@@ -20,7 +20,6 @@ class App extends Component {
   this.handleSubmit = this.handleSubmit.bind(this)
   this.handleNameChange = this.handleNameChange.bind(this)
 }
-
   // FORM: HANDLE INPUT CHANGES
   // handleNameChange below:
   // See form lesson for details.
@@ -30,8 +29,6 @@ handleNameChange(event){
     value: event.target.value
   })
 }
-
-
   //  FORM: SUBMIT METHOD
   // handleSubmit below:
   // See form lesson for details.
@@ -45,8 +42,6 @@ handleSubmit(event) {
     value: ''
   })
 }
-
-
   // LIFECYCLE
   // Which lifecycle is best for fetching data?
   // Inside this lifecycle, you will fetch the vehicles from here: https://swapi.co/api/vehicles/
@@ -55,7 +50,6 @@ handleSubmit(event) {
   // You will want to use this array when you set the state of 'vehicles'. You will need this data in your render.
   // Enter your code below:
 
-
   // RENDER
   // Before you can map over the data you've fetched, you will first need to store that 'state' in a variable.
   // Map over the data.
@@ -63,7 +57,6 @@ handleSubmit(event) {
   // You will need the following values: name, model, manufacturer, class, passengers, crew, length, max speed, and cargo capacity.
   // Rendering: create a 'card' for each of the vehicles. consult the Bootstrap 4 docs for details.
   // Enter your code below:
-
   render() {
     /*
     Store vehicles state in a variable.
@@ -74,7 +67,8 @@ handleSubmit(event) {
       <div className="App">
         <Jumbotron pilotName={this.state.pilot}/>
         <Form handleSubmit={this.handleSubmit.bind(this)}
-        handleNameChange={this.handleNameChange}/>
+        handleNameChange={this.handleNameChange}
+        value={this.state.value}/>
         <Vehicles />
         {/*
         The App component needs the following:
