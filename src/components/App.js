@@ -55,7 +55,7 @@ componentDidMount(){
   fetch('https://swapi.co/api/vehicles/')
   .then(response => response.json())
   .then(json => {
-    console.log(json);
+    console.log(json.results);
     this.setState({
       vehicles: json.results
     })
@@ -81,7 +81,7 @@ componentDidMount(){
         <Form handleSubmit={this.handleSubmit.bind(this)}
         handleNameChange={this.handleNameChange}
         value={this.state.value}/>
-        <Vehicles />
+        <Vehicles vehicles={this.state.vehicles}/>
         {/*
         The App component needs the following:
          jumbotron section, form section, vehicle cards section.

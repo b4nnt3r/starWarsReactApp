@@ -10,6 +10,7 @@ export default class Form extends Component {
         <section>
           <form onSubmit={this.props.handleSubmit}>
             <h2>Form</h2>
+            Enter your name, pilot! 
             <input value={this.props.value}
             onChange={this.props.handleNameChange}/>
           </form>
